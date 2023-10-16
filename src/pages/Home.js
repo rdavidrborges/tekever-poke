@@ -11,7 +11,7 @@ function Home() {
 
     useEffect(() => {
         getPokeList();
-    }, []);
+    });
 
     /**
      * Iterate in a array of pokemons to fetch its details

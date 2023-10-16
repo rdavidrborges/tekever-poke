@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { add, remove } from '../reducers/favorites';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 
 
@@ -50,9 +50,9 @@ const Details = () => {
 
         //set the isFav to true or false depending is its in favorites
         //depending will show Add or Remove buttons
-        setIsFav(favorites.indexOf(name) != -1)
+        setIsFav(favorites.indexOf(name) !== -1)
 
-    }, [favorites]);
+    }, [favorites, name]);
 
     return <div className="m-4">
 
@@ -63,7 +63,7 @@ const Details = () => {
         <div className="card" style={{ width: '300px' }}>
 
             <div className="card-body">
-                <img src={details.img} className="card-img-top" />
+                <img src={details.img} className="card-img-top" alt='pokemon thumbnail' />
             </div>
 
 
@@ -77,7 +77,7 @@ const Details = () => {
             <div className="card-body">
                 <h6>Abilities:</h6>
                 <div className="list-group">
-                    {details && details.abilities && details.abilities.map((item, i) => (
+                    {details.abilities && details.abilities.map((item, i) => (
                         <span key={i} className="list-group-item">{item.ability.name}</span>
                     ))}
 
@@ -87,7 +87,7 @@ const Details = () => {
             <div className="card-body">
                 <h6>Items:</h6>
                 <div className="list-group">
-                    {details && details.items && details.items.map((item, i) => (
+                    {details.items && details.items.map((item, i) => (
                         <span key={i} className="list-group-item">{item.item.name}</span>
                     ))}
 

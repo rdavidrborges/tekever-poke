@@ -11,7 +11,8 @@ const List = ({ list }) => {
         {list && list.map((pokemon, index) => (
             <div key={index} className="card m-3" style={{ width: '300px' }} >
                 <div className="card-body">
-                    <img src={pokemon.sprites.other.dream_world.front_default} className="card-img-top " width={50} height={50} />
+                    <img src={pokemon.sprites.other.dream_world.front_default} className="card-img-top " width={50} height={50}
+                        alt='pokemon thumbnail' />
                 </div>
                 <div className="card-footer d-flex justify-content-between">
                     <h5 >{pokemon.name}</h5>
